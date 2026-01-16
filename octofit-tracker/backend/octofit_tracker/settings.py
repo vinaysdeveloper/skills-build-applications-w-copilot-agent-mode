@@ -1,3 +1,6 @@
+# Import os and define CODESPACE_NAME at the top
+import os
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
 # Configure DRF to use codespace domain for URL generation
 if CODESPACE_NAME:
     REST_FRAMEWORK = {
