@@ -1,3 +1,13 @@
+# Configure DRF to use codespace domain for URL generation
+if CODESPACE_NAME:
+    REST_FRAMEWORK = {
+        'DEFAULT_RENDERER_CLASSES': (
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.BrowsableAPIRenderer',
+        ),
+        'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+        'URL_FIELD_NAME': f'https://{CODESPACE_NAME}-8000.app.github.dev',
+    }
 # Use custom user model
 AUTH_USER_MODEL = 'octofit_tracker.User'
 """
